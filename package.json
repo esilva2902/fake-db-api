@@ -1,11 +1,16 @@
 {
   "name": "fake-db-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The API queries mongodb fake-db.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "EMS",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.9"
+  }
 }
