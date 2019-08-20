@@ -3,8 +3,15 @@ const mongoose = require('mongoose');
 const { Employee } = require('../models/employee');
 
 class DAOEmployee {
-  static async getEmployees() {
-    return Employee.find();
+  static async getEmployees(pageNumber, pageSize) {
+    console.log(`pageNumber: ${pageNumber} - pageSize: ${pageSize}`);
+    return Employee.aggregate([{
+      $skip: parseInt((pageNumber - 1) * pageSize)
+    }, {
+      $sort: { age: -1 }
+    }, {
+      $limit: parseInt(pageSize)
+    }]);
   }
   
   static async getEmployeeById(employeeId) {

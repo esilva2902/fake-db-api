@@ -4,7 +4,10 @@ class CtlEmployee {
 
   static async getEmployees(req, res) {
       try {
-          let employees = await DAOEmployee.getEmployees();
+          let pageNumber = req.query.pageNumber;
+          let pageSize = req.query.pageSize;
+
+          let employees = await DAOEmployee.getEmployees(pageNumber, pageSize);
 
           res.send(employees);
 
