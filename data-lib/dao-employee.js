@@ -8,8 +8,6 @@ class DAOEmployee {
     return Employee.aggregate([{
       $skip: parseInt((pageNumber - 1) * pageSize)
     }, {
-      $sort: { age: -1 }
-    }, {
       $limit: parseInt(pageSize)
     }]);
   }
